@@ -2,6 +2,42 @@
 layout: home
 ---
 
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <script>
+    function isWeChat() {
+      var userAgent = navigator.userAgent.toLowerCase();
+      if(userAgent.match(/MicroMessenger/i) == 'micromessenger') {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    function browser() {
+      
+      
+      var ua = navigator.userAgent.toLowerCase();
+      if (ua.match(/MicroMessenger/i) == "micromessenger") {
+        return "wx";
+      }
+    }
+
+    window.onload = function() {
+      var brow = browser();
+      if("wx" == brow) {
+        window.location.href='indexwx.html';
+      }else{
+        
+        window.location.href='index.html';
+      }
+      
+    }
+  </script>
+</head>
+
+
 {% if paginator.page %}
   {% assign offset = paginator.page | minus:1 | times:paginator.per_page %}
   {% assign currentPage = paginator.page %}
